@@ -1,0 +1,51 @@
+﻿
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <title>MTGroup Autogen</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <link rel="stylesheet" href="~/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/bootstrap/css/bootstrap-grid.css" />
+    <link rel="stylesheet" href="~/bootstrap/css/bootstrap-grid.min.css" />
+    <link rel="stylesheet" href="~/bootstrap/css/bootstrap-reboot.css" />
+    <link rel="stylesheet" href="~/bootstrap/css/bootstrap-reboot.min.css" />
+    <!-- Scripts -->
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="~/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/bootstrap/js/bootstrap.js"></script>
+    <script src="~/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="~/Home/Index">MTGroup Autogen</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <label for="username" style="color:white">Hello @User.Identity.Name.Replace("DOMAINNAME\\", "")</label>
+            </li>
+        </ul>
+    </nav>
+
+    @RenderBody()
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">Group AutoGen. Author : <a href="mailto:wellmagg@gmail.com">stellaglow1122</a></span>
+        </div>
+    </footer>
+
+
+
+</body>
+</html>

@@ -1,0 +1,546 @@
+﻿
+
+
+
+<section class="jumbotron text-center">
+    <div class="container">
+        <div class="form-group">
+            <h1><font color='blue'>Group Autogen</font></h1>
+            <label>Please choose if you want to customize the condition:</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="condition" id="default" value="Default" checked>
+                <label class="form-check-label" for="default">
+                    Default &nbsp &nbsp &nbsp
+                </label>
+                <input class="form-check-input" type="radio" name="condition" id="customize" value="Customize">
+                <label class="form-check-label" for="customize">
+                    Customize
+                </label>
+            </div>
+            <br>
+            <br>
+            <div id="defaultForm" style="z-index: 1;">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input status" type="checkbox" id="inlineCheckbox1" value="COMPLETE ON CURRICULA" checked>
+                    <label class="form-check-label" for="inlineCheckbox1">COMPLETE ON CURRICULA</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input status" type="checkbox" id="inlineCheckbox5" value="COMPLETE" checked>
+                    <label class="form-check-label" for="inlineCheckbox1">COMPLETE</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input status" type="checkbox" id="inlineCheckbox11" value="COMPLETE NOT EXPIRED">
+                    <label class="form-check-label" for="inlineCheckbox1">COMPLETE NOT EXPIRED</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input status" type="checkbox" id="inlineCheckbox2" value="CERTIFIED" disabled>
+                    <label class="form-check-label" style="color:lightgray" for="inlineCheckbox2">CERTIFIED</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input status" type="checkbox" id="inlineCheckbox3" value="RECERTIFIED" disabled>
+                    <label class="form-check-label" style="color:lightgray" for="inlineCheckbox1">RECERTIFIED</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input status" type="checkbox" id="inlineCheckbox4" value="PENDING RECERTIFICATION" disabled>
+                    <label class="form-check-label" style="color:lightgray" for="inlineCheckbox2">PENDING RECERTIFICATION</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input status" type="checkbox" id="inlineCheckbox6" value="WAIVED" disabled>
+                    <label class="form-check-label" style="color:lightgray" for="inlineCheckbox2">WAIVED</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input status" type="checkbox" id="inlineCheckbox7" value="CREDIT" disabled>
+                    <label class="form-check-label" style="color:lightgray" for="inlineCheckbox1">CREDIT</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input status" type="checkbox" id="inlineCheckbox8" value="EQUIVALENT" disabled>
+                    <label class="form-check-label" style="color:lightgray" for="inlineCheckbox2">EQUIVALENT</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input status" type="checkbox" id="inlineCheckbox9" value="EXPIRED" disabled>
+                    <label class="form-check-label" style="color:lightgray" for="inlineCheckbox1">EXPIRED</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input status" type="checkbox" id="inlineCheckbox10" value="IN TRAINING" disabled>
+                    <label class="form-check-label" style="color:lightgray" for="inlineCheckbox2">IN TRAINING</label>
+                </div>
+                <br />
+                <br />
+                <br />
+                <div class="row g-3">
+                    <div class="col-sm-6">
+                        <label for="group_name">Group Name</label>
+                        <br />
+                        <label><span class="text-muted">(Please provide the group name that you want to generate.)</span></label>
+                        <input type="text" name="group_name" class="form-control" id="group_name" value="" placeholder="Ex. Group_Name" />
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="group_owner">Group Owner</label>
+                        <br />
+                        <label><span class="text-muted">(The value should be Company username and need to be divided with ';' or ','.)</span></label>
+                        <input type="text" name="group_owner" class="form-control" id="group_owner" value="ADMINUSER; @User.Identity.Name.Replace("DOMAINNAME\\", "").ToUpper()" placeholder="Ex. USERNAME1;USERNAME2" />
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="site_no">Site No.</label>
+                        <br />
+                        <label><span class="text-muted">(The value should be numbers and need to be divided with ';' or ','.)</span></label>
+                        <input type="text" name="site_no" class="form-control" id="site_no" value="" placeholder="Ex. 123, 456" />
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="cost_center">Cost Center</label>
+                        <br />
+                        <label><span class="text-muted">(The value should be numbers and need to be divided with ';' or ','.)</span></label>
+                        <input type="text" name="cost_center" class="form-control" id="cost_center" value="" placeholder="Ex. 12345678, 234567089" />
+                    </div>
+                </div>
+                <br />
+                <label for="recipients">Please provide the course IDs and divide them with ';' or ',')</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="andOr" id="exampleRadios1" value="OR" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                        OR <span class="text-muted">(If the user completed at least one course in the list then the user will be included.)</span>
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="andOr" id="exampleRadios2" value="AND">
+                    <label class="form-check-label" for="exampleRadios2">
+                        AND <span class="text-muted">(Only users completed all the courses in the list will be included.)</span>
+                    </label>
+                </div>
+                <textarea class="form-control" id="courseID" rows="2"></textarea>
+                <button type="button" class="btn btn-primary my-2 my-sm-0" id="submit">Validate</button>
+                <button type="button" class="btn btn-primary my-2 my-sm-0" id="generateGroup" disabled>Generate Group</button>
+            </div>
+            <div id="customForm" style="z-index: 2;">
+                <div class="row g-3">
+                    <div class="col-sm-6">
+                        <label for="custom_group_name">Group Name</label>
+                        <br />
+                        <label><span class="text-muted">(Please provide the group name that you want to generate.)</span></label>
+                        <input type="text" name="custom_group_name" class="form-control" id="custom_group_name" value="" placeholder="Ex. GROUP_NAME" />
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="custom_group_owner">Group Owner</label>
+                        <br />
+                        <label><span class="text-muted">(The value should be Company username and need to be divided with ';' or ','.)</span></label>
+                        <input type="text" name="custom_group_owner" class="form-control" id="custom_group_owner" value="ADMINUSER; @User.Identity.Name.Replace("DOMAINNAME\\", "").ToUpper()" placeholder="Ex. USERNAME1;USERNAME2" />
+                    </div>
+                </div>
+                <label>Please input your customized query here:</label>
+                <textarea class="form-control" id="customQuery" rows="8"></textarea>
+                <button type="button" class="btn btn-primary my-2 my-sm-0" id="customSubmit">Validate</button>
+                <button type="button" class="btn btn-primary my-2 my-sm-0" id="review" disabled>Submit Request</button>
+                <br />
+                <label>The User input SQL Query will be reviewed and approved by Team SME.</label>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div id="resultQuery">
+            <h3 for="sqlQuery">SQL Query</h3>
+            <textarea class="form-control" id="query" rows="2" style="background-color:lightgray" readonly></textarea>
+        </div>
+        <div class="4u$" id="loading" style="display:none"><span class="image fit"><img src="~/assets/icons/loading.gif" alt="" /></span></div>
+        <br />
+        <br />
+        <div id="queueList">
+
+        </div>
+    </div>
+    <input id="executionTime" hidden>
+    <input id="userCount" hidden>
+    <div id="result" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-fluid" role="document">
+            <div class='modal-content'>
+                <div class='modal-body' id='modalBody'>
+                </div>
+                <div class='modal-footer'>
+                    <button type="button" class="btn btn-primary my-2 my-sm-0" id="confirm">Confirm</button>
+                    <button type='button' class='btn btn-secondary my-2 my-sm-0' data-dismiss='modal'>Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            $("#loading").hide();
+            $("#resultQuery").hide();
+            $("#confirm").hide();
+            $("#customForm").hide();
+        });
+        $("#default").click(function () {
+            $("#customForm").hide();
+            $("#defaultForm").show();
+        });
+        $("#customize").click(function () {
+            $("#defaultForm").hide();
+            $("#customForm").show();
+        });
+
+        function generateCommandString(courseID, siteNo, costCenter, statusList, andOr) {
+            var commandString = "Query ;\n";
+            courseArray = courseID.replace(' ', '').split(/;|,|@@/);
+            var commandCount = 0;
+            if (andOr == 'AND') {
+                courseArray.forEach(function (value) {
+                    if (value != '') {
+                        commandString += "Query '" + value + "', '" + statusList + "';\n";
+                        ++commandCount;
+                    }
+                });
+            }
+            else {
+                commandString += "Query '" + courseID.replace(';', ',') + "', '" + statusList + "';\n";
+            }
+            
+            commandString += "Query \n";
+            if (costCenter != "") {
+                commandString += "Query \n";
+            }
+            commandString += "Query \n";
+            if (siteNo != "") {
+                commandString += "Query (";
+                var siteNoList = siteNo;
+                siteNoArray = siteNoList.replace(' ', '').replace("'", "").replace('"', '').split(/;|,|@@/);
+                siteNoArray.forEach(function (value) {
+                    if (value != '') {
+                        commandString += "'" + value + "',";
+                    }
+                });
+                commandString = commandString.substring(0, commandString.length - 1);
+                commandString += ')\n';
+            }
+            if (costCenter != "") {
+                commandString += "Query (";
+                var costCenterList = costCenter;
+                costCenterArray = costCenterList.replace(' ', '').replace("'", "").replace('"', '').split(/;|,|@@/);
+                costCenterArray.forEach(function (value) {
+                    if (value != '') {
+                        commandString += "'" + value + "',";
+                    }
+                });
+                commandString = commandString.substring(0, commandString.length - 1);
+                commandString += ')\n';
+            }
+            if (andOr == 'AND') {
+                commandString += "Query" + commandCount.toString() + " Query";
+            }
+            
+            return commandString;
+    }
+    $("#customQuery").click(function () {
+        document.getElementById("review").disabled = true;
+    });
+    $("#customSubmit").click(function () {
+        var query = $("#customQuery").val();
+        document.getElementById("review").disabled = true;
+        var inputJSON = JSON.stringify({ "courseIDList": 'null', "statusList": 'null', "andOr": 'null', "groupName": 'null', "groupOwner": $("#custom_group_owner").val(), 'query': query });
+        console.log(inputJSON);
+        $.ajax('ShowUserDetail', {
+                type: 'POST',  // http method
+                contentType: 'application/json',
+                data: inputJSON,
+                beforeSend: function () {
+                    $("#queueList").hide();
+                    $("#loading").show();
+                },
+                success: function (data, status, xhr) {
+                    $("#query").val(query);
+
+                    var htmlResponse = "";
+                    htmlResponse = data.substring(data.indexOf("]") + 1);
+                    var userCountAndExecutionTime = data.substring(1, data.indexOf("]"));
+                    const valueArray = userCountAndExecutionTime.split(",");
+                    $("#userCount").val(valueArray[0]);
+                    $("#executionTime").val(valueArray[1]);
+
+                    $("#loading").hide();
+                    $("#resultQuery").show();
+                    $("#queueList").html(htmlResponse);
+                    $("#queueList").show();
+                    if (!htmlResponse.includes("we will not accept")) {
+                        document.getElementById("review").disabled = false;
+                    }
+                    //else {
+                    //   document.getElementById("review").disabled = true;
+                    //}
+                },
+                error: function (jqXhr, textStatus, errorMessage) {
+                    $("#modalBody").html("<h5>Failed to get the data! Please contact Team to proceed your request manually.</h5>");
+                    //document.getElementById("review").disabled = true;
+                    $("#result").modal("show");
+                    $("#loading").hide();
+                },
+                timeout: 600 * 1000
+            });
+    });
+    $("#review").click(function () {
+        var groupName = $("#custom_group_name").val();
+        var groupOwner = $("#custom_group_owner").val();
+        var query = $("#customQuery").val();
+        var userCount = $("#userCount").val();
+        var executionTime = $("#executionTime").val();
+        var inputJSON = JSON.stringify({ "courseIDList": 'null', "statusList": userCount, "andOr": executionTime, "groupName": groupName, "groupOwner": groupOwner, 'query': query });
+        $.ajax('CreateSNTaskForApproval', {
+            type: 'POST',  // http method
+            contentType: 'application/json',
+            data: inputJSON,
+            beforeSend: function () {
+                $("#queueList").hide();
+                $("#loading").show();
+            },
+            success: function (data, status, xhr) {
+                $("#loading").hide();
+                if (data.substring(0, 6) != 'Failed') {
+                    const snResult = JSON.parse(data);
+                    var request_number = snResult['result']['request_number'];
+                    $("#modalBody").html("<h5>" + request_number + " has been created for your request.</h5>");
+                    $("#result").modal("show");
+                }
+                else {
+                    $("#modalBody").html("<h5>" + data + " Please contact Team to proceed your request manually.</h5>");
+                    $("#result").modal("show");
+                }
+            },
+            error: function (jqXhr, textStatus, errorMessage) {
+                $("#modalBody").html("<h5>Failed to create the request! Please contact Team to proceed your request manually.</h5>");
+                $("#result").modal("show");
+                $("#loading").hide();
+            },
+            timeout: 600 * 1000
+        });
+        document.getElementById("review").disabled = true;
+    });
+        $("#submit").click(function () {
+            $("#confirm").hide();
+            $("#resultQuery").hide();
+            var checkCount = 0;
+            $('.status').each(function () {
+                if ($(this).prop("checked")) {
+                    ++checkCount;
+                }
+            });
+            if ($("#courseID").val() != "" && checkCount != 0) {
+                var statusList = "";
+                var courseID = $("#courseID").val();
+                $('.status').each(function () {
+                    if ($(this).prop("checked")) {
+                        statusList = statusList + $(this).val() + ',';
+                    }
+                });
+                statusList = statusList.substring(0, statusList.length - 1);
+                var andOr = $('input[name=andOr]:checked').val();
+                var query;
+                var addRow = 0;
+                if ($("#site_no").val() != "") {
+                    ++addRow;
+                }
+                if ($("#cost_center").val() != "") {
+                    addRow += 2;
+                }
+                if (andOr == 'OR') {
+                    if ($("#site_no").val() == "" && $("#cost_center").val() == "") {
+                        query = "Query '" + courseID.replace(';', ',') + "', '" + statusList + "'";
+                        $("#query").attr("rows", 2);
+                    }
+                    else {
+                        courseArray = courseID.replace(' ', '').split(/;|,|@@/);
+                        query = generateCommandString(courseID, $("#site_no").val(), $("#cost_center").val(), statusList, andOr);
+                        $("#query").attr("rows", (courseArray.length + 4 + addRow).toString());
+                    }
+                    
+                }
+                else {
+                    courseArray = courseID.replace(' ', '').split(/;|,|@@/);
+                    query = generateCommandString(courseID, $("#site_no").val(), $("#cost_center").val(), statusList, andOr);
+                    $("#query").attr("rows", (courseArray.length + 4 + addRow).toString());
+                }
+                var inputJSON = JSON.stringify({ "courseIDList": courseID.replace(' ', ''), "statusList": statusList, "andOr": andOr, "groupName": '', "groupOwner": $("#group_owner").val(), 'query': query });
+                //var inputJSON = JSON.stringify({ "inputString": courseID, "complete_on_curricula": $("#inlineCheckbox1").prop("checked").toString(), "certified": $("#inlineCheckbox2").prop("checked").toString(), "recertified": $("#inlineCheckbox3").prop("checked").toString(), "pending_recertification": $("#inlineCheckbox4").prop("checked").toString(), "complete": $("#inlineCheckbox5").prop("checked").toString(), "waived": $("#inlineCheckbox6").prop("checked").toString(), "credit": $("#inlineCheckbox7").prop("checked").toString(), "equivalent": $("#inlineCheckbox8").prop("checked").toString(), "expired": $("#inlineCheckbox9").prop("checked").toString(), "in_training": $("#inlineCheckbox10").prop("checked").toString(), "complete_not_expired": $("#inlineCheckbox11").prop("checked").toString() });
+                console.log(inputJSON);
+                $.ajax('ShowUserDetail', {
+                    type: 'POST',  // http method
+                    contentType: 'application/json',
+                    data: inputJSON,
+                    beforeSend: function () {
+                        $("#queueList").hide();
+                        $("#loading").show();
+                    },
+                    success: function (data, status, xhr) {
+                        $("#query").val(query);
+                        
+                        var htmlResponse = "";
+                        htmlResponse = data.substring(data.indexOf("]") + 1);
+                        
+
+                        $("#loading").hide();
+                        $("#resultQuery").show();
+                        $("#queueList").html(htmlResponse);
+                        $("#queueList").show();
+                        document.getElementById("generateGroup").disabled = false;
+
+                    },
+                    error: function (jqXhr, textStatus, errorMessage) {
+                        $("#modalBody").html("<h5>Failed to get the data! Please contact Team to proceed your request manually.</h5>");
+                        $("#result").modal("show");
+                        $("#loading").hide();
+                    },
+                    timeout: 600 * 1000
+                });
+
+
+            }
+            else {
+                $("#modalBody").html("<h5>Please make sure you provide the course IDs and status you want to check!</h5>");
+                $("#result").modal("show");
+            }
+
+
+    });
+    $("#generateGroup").click(function () {
+        $("#confirm").hide();
+        $("#resultQuery").hide();
+        var checkCount = 0;
+        $('.status').each(function () {
+            if ($(this).prop("checked")) {
+                ++checkCount;
+            }
+        });
+        if ($("#group_name").val() != "" && $("#group_owner").val() != "" && checkCount != 0 && $("#courseID").val() != "") {
+            var statusList = "";
+            var courseID = $("#courseID").val();
+            $('.status').each(function () {
+                if ($(this).prop("checked")) {
+                    statusList = statusList + $(this).val() + ',';
+                }
+            });
+            statusList = statusList.substring(0, statusList.length - 1);
+            var andOr = $('input[name=andOr]:checked').val();
+            var groupName = $("#group_name").val();
+            var groupOwner = $("#group_owner").val();
+            var query;
+            var addRow = 0;
+            if ($("#site_no").val() != "") {
+                ++addRow;
+            }
+            if ($("#cost_center").val() != "") {
+                addRow += 2;
+            }
+            if (andOr == 'OR') {
+                if ($("#site_no").val() == "" && $("#cost_center").val() == "") {
+                    query = "Query '" + courseID.replace(';', ',') + "', '" + statusList + "'";
+                    $("#query").attr("rows", 2);
+                }
+                else {
+                    courseArray = courseID.replace(' ', '').split(/;|,|@@/);
+                    query = generateCommandString(courseID, $("#site_no").val(), $("#cost_center").val(), statusList, andOr);
+                    $("#query").attr("rows", (courseArray.length + 4 + addRow).toString());
+                }
+
+            }
+            else {
+                courseArray = courseID.replace(' ', '').split(/;|,|@@/);
+                query = generateCommandString(courseID, $("#site_no").val(), $("#cost_center").val(), statusList, andOr);
+                $("#query").attr("rows", (courseArray.length + 4 + addRow).toString());
+            }
+            var inputJSON = JSON.stringify({ "courseIDList": courseID.replace(' ', ''), "statusList": statusList, "andOr": andOr, "groupName": groupName, "groupOwner": groupOwner.replace(' ', '').toUpperCase(), "query": query });
+            
+            console.log(inputJSON);
+            $.ajax('GenerateGroup', {
+                type: 'POST',  // http method
+                contentType: 'application/json',
+                data: inputJSON,
+                beforeSend: function () {
+                    $("#queueList").hide();
+                    $("#loading").show();
+                },
+                success: function (data, status, xhr) {
+                    $("#loading").hide();
+                    if (data == 'success') {
+                        $.ajax('AddGroupOwner', {
+                            type: 'POST',  // http method
+                            contentType: 'application/json',
+                            data: inputJSON,
+                            beforeSend: function () {
+                            },
+                            success: function (data, status, xhr) {
+                                console.log(data);
+
+                            },
+                            error: function (jqXhr, textStatus, errorMessage) {
+                                console.log(errorMessage);
+                            },
+                            timeout: 600 * 1000
+                        });
+                        $("#modalBody").html("<h5>Group " + groupName + " has been updated successfully.</h5>");
+                        $("#result").modal("show");
+                    }
+                    else if (data == 'Group already exists!') {
+                        $("#modalBody").html("<h5>Group " + groupName + " already exists and you are not the owner/contact of this group. Please click confirm if you still want to proceed with your request, a Service Now task will be created to Team.</h5>");
+                        $("#confirm").show();
+                        $("#result").modal("show");
+                        $("#confirm").click(function () {
+                            $("#result").modal("hide");
+                            $("#confirm").hide();
+                            $.ajax('CreateSNTask', {
+                                type: 'POST',  // http method
+                                contentType: 'application/json',
+                                data: inputJSON,
+                                beforeSend: function () {
+                                    $("#queueList").hide();
+                                    $("#loading").show();
+                                },
+                                success: function (data, status, xhr) {
+                                    $("#loading").hide();
+                                    if (data.substring(0, 6) != 'Failed') {
+                                        const snResult = JSON.parse(data);
+                                        var request_number = snResult['result']['request_number'];
+                                        $("#modalBody").html("<h5>" + request_number + " has been created for your request.</h5>");
+                                        $("#result").modal("show");
+                                    }
+                                    else {
+                                        $("#modalBody").html("<h5>" + data + " Please contact Team to proceed your request manually.</h5>");
+                                        $("#result").modal("show");
+                                    }
+                                },
+                                error: function (jqXhr, textStatus, errorMessage) {
+                                    $("#modalBody").html("<h5>Failed to create the group! Please contact Team to proceed your request manually.</h5>");
+                                    $("#result").modal("show");
+                                    $("#loading").hide();
+                                },
+                                timeout: 600 * 1000
+                            });
+                        });
+                    }
+                    else if (data == 'Group already exists and more than ten requests!') {
+                        $("#modalBody").html("<h5>You have already submitted 10 requests to Team. If you have more requests please contact Team directly to discuss further on how to proceed your requests.</h5>");
+                        $("#confirm").show();
+                        $("#result").modal("show");
+                    }
+                    else {
+                        $("#modalBody").html("<h5>" + data + " Please contact Team to proceed your request manually.</h5>");
+                        $("#result").modal("show");
+                    }
+                    
+
+                    
+
+                },
+                error: function (jqXhr, textStatus, errorMessage) {
+                    $("#modalBody").html("<h5>Failed to create the group! Please contact Team to proceed your request manually.</h5>");
+                    $("#result").modal("show");
+                    $("#loading").hide();
+                },
+                timeout: 600 * 1000
+            });
+            document.getElementById("generateGroup").disabled = true;
+        }
+        else {
+            $("#modalBody").html("<h5>Please make sure you provide the group name, group owner, course IDs and status!</h5>");
+            $("#result").modal("show");
+        }
+    });
+</script>
